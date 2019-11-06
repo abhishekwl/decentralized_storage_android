@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+    <item
+        android:icon="@drawable/ic_people_outline_black_24dp"
+        android:title="Posts"
+        app:showAsAction="always" />
+       -->
+
+    <item
+        android:id="@+id/videosMenuItem"
+        android:icon="@drawable/ic_ondemand_video_black_24dp"
+        android:title="Videos"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/photosMenuItem"
+        android:icon="@drawable/ic_photo_camera_black_24dp"
+        android:title="Images"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/privateMenuItem"
+        android:icon="@drawable/ic_lock_open_black_24dp"
+        android:title="Private"
+        app:showAsAction="always" />
+</menu>
