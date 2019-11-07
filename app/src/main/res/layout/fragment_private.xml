@@ -3,18 +3,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
-    android:paddingTop="32dp"
-    tools:context=".PostsFragment">
+    tools:context=".PrivateFragment">
 
-    <TextView
-        android:textSize="40sp"
-        android:fontFamily="@font/product_sans_bold"
-        android:textColor="@color/colorTextDark"
-        android:text="Private"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="40sp"
+                android:fontFamily="@font/product_sans_bold"
+                android:textColor="@color/colorTextDark"
+                android:text="Private"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textSize="16sp"
+                android:fontFamily="@font/product_sans_regular"
+                android:textColor="@color/colorTextDark"
+                android:text="For your eyes only."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_fileName="private.json"
+            android:layout_width="128dp"
+            android:layout_height="128dp" />
+
+    </LinearLayout>
+
 
 </LinearLayout>
