@@ -2,6 +2,7 @@
     <string name="app_name">DCloud</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="ipfs_server_url">http://192.168.43.12:8080</string>
+    <string name="ipfs_fetch_url">http://192.168.43.12:8080</string>
+    <string name="ipfs_push_url">http://192.168.43.12:5001</string>
     <string name="app_server_url">http://192.168.43.12:10000</string>
 </resources>

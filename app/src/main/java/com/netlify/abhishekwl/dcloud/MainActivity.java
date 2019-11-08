@@ -1,5 +1,6 @@
 package com.netlify.abhishekwl.dcloud;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton addFab;
 
     public OkHttpClient okHttpClient;
-    private String userId, userName;
+    public static String userId, userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().replace(R.id.mainFrameLayout, new PostsFragment()).commit();
         addFab = findViewById(R.id.mainAddFab);
         addFab.setColorFilter(Color.WHITE);
+        addFab.setOnClickListener(v -> {
+            Intent uploadFileIntent = new Intent(MainActivity.this, UploadActivity.class);
+            uploadFileIntent.putExtra("user_id", userId);
+            uploadFileIntent.putExtra("user_name", userName);
+            startActivity(uploadFileIntent);
+        });
     }
 
     private void initializeComponents() {
