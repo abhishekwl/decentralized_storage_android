@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton addFab;
 
     public OkHttpClient okHttpClient;
+    private String userId, userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeComponents() {
         okHttpClient = new OkHttpClient();
+        userId = getIntent().getStringExtra("user_id");
+        userName = getIntent().getStringExtra("user_name");
     }
 
     @Override
