@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="4dp"
+    app:cardBackgroundColor="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:contentPadding="8dp"
+    android:layout_marginTop="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/postListItemAuthorImageView"
+                android:layout_width="64dp"
+                android:layout_height="64dp" />
+
+            <TextView
+                android:id="@+id/postListItemAuthorNameTextView"
+                android:layout_marginStart="8dp"
+                android:textSize="24sp"
+                android:layout_weight="1"
+                android:fontFamily="@font/product_sans_bold"
+                tools:text="User Name"
+                android:textColor="@color/colorTextDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/postListItemShareButton"
+                android:textSize="18sp"
+                android:fontFamily="@font/product_sans_regular"
+                android:textAllCaps="false"
+                android:text="Share"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/postListItemContentTextView"
+            android:textColor="@color/colorTextDark"
+            android:fontFamily="@font/product_sans_regular"
+            android:textSize="18sp"
+            tools:text="Post content"
+            android:layout_marginBottom="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/postListItemImageView"
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="196dp" />
+
+        <VideoView
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:id="@+id/postListItemVideoView"
+            android:layout_width="match_parent"
+            android:layout_height="196dp" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

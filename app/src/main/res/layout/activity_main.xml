@@ -15,22 +15,24 @@
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/mainBottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:menu="@menu/main_menu"
+        app:backgroundTint="@android:color/white"
         app:fabAlignmentMode="center"
         app:fabAnimationMode="slide"
         app:fabCradleMargin="12dp"
+        app:menu="@menu/main_menu"
         app:subtitleTextColor="@color/colorTextDark"
-        app:titleTextColor="@color/colorTextDark"
-        app:backgroundTint="@android:color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        app:titleTextColor="@color/colorTextDark" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/mainAddFab"
+        android:tooltipText="Long press to open gaming mode!"
         android:src="@drawable/ic_add_white_24dp"
         app:layout_anchor="@id/mainBottomAppBar"
         app:backgroundTint="@color/colorPrimary"
+        app:rippleColor="@color/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

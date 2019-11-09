@@ -124,11 +124,13 @@
     </LinearLayout>
 
     <RadioGroup
+        android:id="@+id/publicOrPrivateTypeRadioGroup"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <RadioButton
+            android:id="@+id/uploadPublicTypeRadioButton"
             android:checked="true"
             android:layout_weight="1"
             android:text="Public"
@@ -138,6 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <RadioButton
+            android:id="@+id/uploadPrivateTypeRadioButton"
             android:textSize="16sp"
             android:textColor="@color/colorTextDark"
             android:fontFamily="@font/product_sans_regular"

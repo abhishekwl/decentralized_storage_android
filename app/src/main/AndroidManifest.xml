@@ -21,6 +21,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".GameActivity"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".UploadActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".SignInActivity" />

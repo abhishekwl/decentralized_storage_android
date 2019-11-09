@@ -51,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
             uploadFileIntent.putExtra("user_name", userName);
             startActivity(uploadFileIntent);
         });
+        addFab.setOnLongClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, GameActivity.class));
+            return true;
+        });
     }
 
     private void initializeComponents() {

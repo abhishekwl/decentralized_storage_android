@@ -45,7 +45,7 @@ public class UploadActivity extends AppCompatActivity {
 
     private static final int PICKFILE_REQUEST_CODE = 971;
 
-    private RadioGroup typeRadioGroup;
+    private RadioGroup typeRadioGroup, privacyTypeRadioGroup;
     private EditText descriptionEditText;
     private FloatingActionButton addFileFab;
     private MaterialButton uploadButton;
@@ -94,6 +94,17 @@ public class UploadActivity extends AppCompatActivity {
         uploadButton = findViewById(R.id.uploadButton);
         selectedFileNameTextView = findViewById(R.id.selectedFileNameTextView);
         uploadProgressBar = findViewById(R.id.uploadProgressBar);
+        privacyTypeRadioGroup = findViewById(R.id.publicOrPrivateTypeRadioGroup);
+
+        privacyTypeRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            switch (checkedId) {
+                case R.id.uploadPrivateTypeRadioButton:
+                    filePrivate = true;
+                    break;
+                default:
+                    filePrivate = false;
+            }
+        });
 
         typeRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
@@ -121,6 +132,8 @@ public class UploadActivity extends AppCompatActivity {
     }
 
     private void uploadFileToIpfs() {
+        uploadProgressBar.setVisibility(View.VISIBLE);
+
         String mimeType = mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(selectedFileUri));
         if (Objects.requireNonNull(mimeType).equalsIgnoreCase("jpg") || mimeType.equalsIgnoreCase("png") || mimeType.equalsIgnoreCase("jpeg")) mimeType = "image/"+mimeType;
         else if (mimeType.equalsIgnoreCase("mp4") || mimeType.equalsIgnoreCase("3gp") || mimeType.equalsIgnoreCase("off") || mimeType.equalsIgnoreCase("wmv") || mimeType.equalsIgnoreCase("webm") || mimeType.equalsIgnoreCase("flv") || mimeType.equalsIgnoreCase("avi")) mimeType = "video/"+mimeType;
@@ -168,7 +181,7 @@ public class UploadActivity extends AppCompatActivity {
             postJson.put("description", descriptionEditText.getText().toString());
             postJson.put("name", name);
             postJson.put("hash", hash);
-            postJson.put("type", postType);
+            postJson.put("category", postType);
             postJson.put("size", fileSize);
             postJson.put("private", filePrivate);
             MediaType mediaType = MediaType.parse("application/json");
@@ -186,7 +199,6 @@ public class UploadActivity extends AppCompatActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(responseBody);
                         String _id = jsonObject.getString("_id");
-                        notifyMessage("Post added with id "+_id);
 
                         fileHash = null;
                         fileMimeType = null;
@@ -196,7 +208,12 @@ public class UploadActivity extends AppCompatActivity {
                         fileSize = 0;
                         selectedFileUri = null;
                         selectedFile = null;
-                        selectedFileNameTextView.setText("Not selected");
+
+                        runOnUiThread(() -> {
+                            notifyMessage("Post added with id "+_id);
+                            selectedFileNameTextView.setText("Not selected");
+
+                        });
 
                     } catch (JSONException e) {
                         e.printStackTrace();
