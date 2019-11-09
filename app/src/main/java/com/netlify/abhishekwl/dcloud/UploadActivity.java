@@ -88,7 +88,6 @@ public class UploadActivity extends AppCompatActivity {
     }
 
     private void initializeViews() {
-        typeRadioGroup = findViewById(R.id.uploadTypeRadioGroup);
         descriptionEditText = findViewById(R.id.uploadDescriptionEditText);
         addFileFab = findViewById(R.id.uploadAddFileFab);
         uploadButton = findViewById(R.id.uploadButton);
@@ -103,20 +102,6 @@ public class UploadActivity extends AppCompatActivity {
                     break;
                 default:
                     filePrivate = false;
-            }
-        });
-
-        typeRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.uploadPhotosRadioButton:
-                    postType = "IMAGE";
-                    break;
-                case R.id.uploadVideosRadioButton:
-                    postType = "VIDEO";
-                    break;
-                default:
-                    postType = "POST";
-                    break;
             }
         });
 
@@ -181,7 +166,7 @@ public class UploadActivity extends AppCompatActivity {
             postJson.put("description", descriptionEditText.getText().toString());
             postJson.put("name", name);
             postJson.put("hash", hash);
-            postJson.put("category", postType);
+            postJson.put("category", "POST");
             postJson.put("size", fileSize);
             postJson.put("private", filePrivate);
             MediaType mediaType = MediaType.parse("application/json");

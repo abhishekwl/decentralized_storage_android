@@ -6,6 +6,7 @@
     tools:context=".GameActivity">
 
     <ImageView
+        android:scaleType="centerCrop"
         android:id="@+id/gameImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
