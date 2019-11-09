@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         okHttpClient = new OkHttpClient();
         userId = getIntent().getStringExtra("user_id");
         userName = getIntent().getStringExtra("user_name");
+        if (Objects.requireNonNull(userName).contains("test")) userName="Abhishek";
     }
 
     @Override
