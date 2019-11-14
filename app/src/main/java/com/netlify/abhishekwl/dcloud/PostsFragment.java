@@ -87,7 +87,7 @@ public class PostsFragment extends Fragment {
                     postRecyclerViewAdapter = new PostRecyclerViewAdapter(rootView.getContext(), postArrayList);
                     Objects.requireNonNull(getActivity()).runOnUiThread(() -> postRecyclerView.setAdapter(postRecyclerViewAdapter));
                 } catch (JSONException e) {
-                    e.printStackTrace();
+                    notifyMessage(e.getMessage());
                 }
             }
         });

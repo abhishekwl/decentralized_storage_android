@@ -2,6 +2,7 @@ package com.netlify.abhishekwl.dcloud;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -52,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(uploadFileIntent);
         });
         addFab.setOnLongClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, GameActivity.class));
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://192.168.43.12:8081/index.html"));
+            startActivity(browserIntent);
             return true;
         });
     }
